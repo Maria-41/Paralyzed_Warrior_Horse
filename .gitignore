@@ -4,3 +4,15 @@ Library/
 Logs/
 
 Temp/
+
+\.vscode/
+
+obj/
+
+Assembly-CSharp\.csproj
+
+Paralyzed_Warrior_Horse\.sln
+
+test-0\.1-v1\.symbols\.zip
+
+test\.apk
