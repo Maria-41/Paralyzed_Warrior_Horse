@@ -17,9 +17,15 @@ public class MinionController : MonoBehaviour
             if (timer >= timeToIssueBanana)
             {
                 BananasManager.Instance.AddMinionBananas(bananas);
+                RotateMinion();
                 PopupManager.Instance.SetActiveBananaText(this.gameObject, bananas);
                 timer = 0;
             }
         }
+    }
+
+    public void RotateMinion()
+    {
+        this.transform.Rotate(new Vector3(0,0, 90));
     }
 }

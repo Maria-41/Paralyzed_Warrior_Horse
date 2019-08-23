@@ -18,7 +18,7 @@ public class RemoteSettingsHelper : MonoBehaviour
 
     private void GetValuesFromRS()
     {
-        startModifier = RemoteSettings.GetInt("startModifier", 10);
+        startModifier = RemoteSettings.GetInt("StartModifier", 10);
     }
 
     public int GetStartModifier()

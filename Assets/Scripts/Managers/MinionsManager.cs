@@ -36,6 +36,11 @@ public class MinionsManager : MonoBehaviour
 
     public void BuyMinion()
     {   
+        if(minionsAmount >= maxMinionsAmount)
+            {
+                Debug.Log("You bought the all minions");
+                return;
+            }
         if(!BananasManager.Instance.BuyItem(minionCost))
         {
             Debug.Log("Not enough money");
@@ -43,11 +48,6 @@ public class MinionsManager : MonoBehaviour
         }
         else
         {
-            if(minionsAmount >= maxMinionsAmount)
-            {
-                Debug.Log("You bought the all minions");
-                return;
-            }
             minionsAmount ++;
             SpawnMinion();
             UIController.Instance.UpdateMinionButtonTxt();

@@ -31,6 +31,7 @@ public class BananasManager : MonoBehaviour
         bananasAmount += bananaModifier;
 
         DataManager.Instance.SaveBananaAmount(bananasAmount);
+        CheckTheBalance(bananasAmount);
     }
 
     public void AddMinionBananas(int value)
@@ -38,7 +39,8 @@ public class BananasManager : MonoBehaviour
         bananasAmount += value;
         UIController.Instance.UpdateBananasAmountText(bananasAmount.ToString());
 
-        DataManager.Instance.SaveBananaAmount(bananasAmount);        
+        DataManager.Instance.SaveBananaAmount(bananasAmount);  
+        CheckTheBalance(bananasAmount);      
     }
 
     public void AddBananasPerSec()
@@ -58,6 +60,7 @@ public class BananasManager : MonoBehaviour
 
     public bool BuyItem(int cost)
     {
+        
         if(bananasAmount >= cost)
         {
             bananasAmount -= cost;
@@ -67,6 +70,24 @@ public class BananasManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void CheckTheBalance(int value)
+    {
+        float result = value;
+        while(result >= 10)
+        {
+            result /= 10;
+        }
+        
+        if(result == 1.0f)
+        {
+            AdsManager.Instance.ShowVideoAd();
+        }
+        else
+        {
+            return;
         }
     }
 }
